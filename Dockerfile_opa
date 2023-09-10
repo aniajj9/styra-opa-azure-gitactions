@@ -1,0 +1,9 @@
+# --- OPA IMAGE ---
+
+FROM openpolicyagent/opa:0.53.0-static
+
+COPY bundles /tmp/bundles
+
+CMD ["run", "--server", "-b", "/tmp/bundles"]
+
+EXPOSE 8181

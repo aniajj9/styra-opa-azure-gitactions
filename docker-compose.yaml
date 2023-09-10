@@ -1,0 +1,15 @@
+version: "2"  
+services:
+  opa:
+    image: openpolicyagent/opa:0.53.0-static
+    command: ["run", "--server", "-b", "/tmp/bundles"]
+    volumes:
+        - C:\Users\bduago\OneDrive - Bankdata\Skrivebord\git\DOCKER-AZURE-WORK\BankData-CTF-2023\Web\StyraOpaMagic\bundles:/tmp/bundles
+    ports:
+      - "8181:8181"
+  ctf:
+    image: ctf
+    build: .
+    ports:
+      - "3001:3001"
+
