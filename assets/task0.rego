@@ -1,6 +1,6 @@
 package ctf.task0
 
-#Get the flag by making this rule evaluate to true
+#Get the flag by making this rule evaluate to true, github actions work check
 decision = {"allowed": true, "flag": flag} {
     count(_deny_reasons) == 0
     flag := "masked"
