@@ -16,22 +16,22 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
+    - name: Set up Docker Buildx for styra
       uses: docker/setup-buildx-action@v2
 
-    - name: Log in to registry
+    - name: Log in to registry for styra
       uses: docker/login-action@v2
       with:
         registry: https://styra0ctf0container0registry.azurecr.io/
         username: ${{ secrets.AzureAppService_ContainerUsername_6dc5ad473aa74ee19c9d1db550ba1058 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_2065c8c7bcbc4007896cf1d39b0745c8 }}
 
-    - name: Build and push container image to registry
+    - name: Build and push container image to registry for styra
       uses: docker/build-push-action@v3
       with:
         push: true
         tags: styra0ctf0container0registry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6dc5ad473aa74ee19c9d1db550ba1058 }}/ctf-github:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./Dockerfile_ctf
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-    - name: Deploy to Azure Web App
+    - name: Deploy to Azure Web App for styra
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
