@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: styractfdockerregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_dcc12c4b0d1e4a4e83e2017a26b7b8a5 }}/ctf:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./Dockerfile_ctf
 
   deploy:
     runs-on: ubuntu-latest
