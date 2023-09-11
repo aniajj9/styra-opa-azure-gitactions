@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://styractfdockerregistry.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_6be5c886db4a4440a3b3da11542ad079 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_b51399b40c1a444ea47586e34034a01f }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_dcc12c4b0d1e4a4e83e2017a26b7b8a5 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_f070e43d56364a399d2b676860d2f31e }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: styractfdockerregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6be5c886db4a4440a3b3da11542ad079 }}/ctf:${{ github.sha }}
+        tags: styractfdockerregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_dcc12c4b0d1e4a4e83e2017a26b7b8a5 }}/ctf:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'styra-ctf'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b4416f1c087541929f46da25fd0b70cf }}
-        images: 'styractfdockerregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6be5c886db4a4440a3b3da11542ad079 }}/ctf:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e4b842d3aad94ffd8599c3c2776188cf }}
+        images: 'styractfdockerregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_dcc12c4b0d1e4a4e83e2017a26b7b8a5 }}/ctf:${{ github.sha }}'
