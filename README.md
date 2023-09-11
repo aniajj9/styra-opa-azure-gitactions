@@ -1,4 +1,4 @@
-# Deploying Two Docker Containers (Styra CTF and OPA) to Azure Web Apps
+# Deploying Two Docker Containers (Styra CTF and OPA) to Azure Web Apps:
 
 ## 1. Create Azure Web Apps
 - Create two separate Azure Web Apps: one for the Styra CTF and another for OPA. You can do this through the Azure portal, or CLI.
