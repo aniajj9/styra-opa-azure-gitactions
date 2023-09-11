@@ -103,7 +103,7 @@ func main() {
 			return
 		}
 
-		req, err := http.NewRequest("POST", fmt.Sprintf("https://opa-ctf.azurewebsites.net/v1/data/ctf/task%d/decision", task), r.Body)
+		req, err := http.NewRequest("POST", fmt.Sprintf("opa-ctf.azurewebsites.net/v1/data/ctf/task%d/decision", task), r.Body)
 		defer r.Body.Close()
 		if err != nil {
 			log.Println(err)
