@@ -34,3 +34,13 @@
 ## 9. Continuous deployment
 - The subsequent changes to any file in "main" branch should trigger redeployment of both Styra CTF and OPA applications.
 
+## 10. Setting up virtual network
+- Since only the Styra app needs to be publicly available, a virtual network can be set up to deny access to OPA.
+  1. Create a Virtual Network in the same resource group as the two applications
+  2. Create a subnet in the Virtual Network
+  3. In "Settings" > "Networking" > "Outbound Traffic" enable VNet integration
+  4. Add a VNet configuration, choosing the created subnet. Make sure "Route All" setting is enabled
+  5. For OPA only: allow "Access Restrictions" in "Inbound Traffic"
+  6. In "Access Restrictions" make sure "Allow public access" is enabled
+  7. Add an "" 
+
