@@ -5,8 +5,8 @@
 
 ## 2. Initialize Web Apps
 - You can initialize the two Web Apps with any container image at this point. However, it's recommended to use the containers that correspond to the desired application to simplify debugging later on. 
-  - To deploy Styra CTF and OPA, it is recommended to either deploy them locally and push the images to DockerHub, or use Azure's File Storage for the local files, and push containers to Azure Container Registry.
-  - The benefit of using Azure Container Registry, is that it needs to be setup regardless of the chosen solution, as it will be later used to store the containers built using Github Actions. The login informations are then automatically transferred to the workflow file and Github secrets, if the app has been initialized using an image from ACR. Otherwise, it would need to have been set up manually.
+  - To deploy Styra CTF and OPA, it is recommended to build containers locally and push them to Azure Container Registry. It might be necessary to uze Azure File Storage for any files that need to be mounted.
+  - The benefit of using Azure Container Registry, is that it needs to be setup regardless of the chosen solution, as it will be later used to store the containers built using Github Actions. If the app has been initialized using an image from AC, then the login informations are automatically transferred to the workflow file and Github secrets. Otherwise, it would have been needed to set them up manually.
 
 ## 3. Configure Application Settings
 - For each Azure Web App, go to "Settings" > "Configuration" > "Application Settings."
@@ -18,8 +18,8 @@
 - Link the GitHub repository containing the Dockerfiles and application code. This will automatically create a workflow file in the repository (usually under `.github/workflows`) to automate deployments.
 
 ## 5. Modify GitHub Workflow
-- !!! The first automatic deployment should fail !!! 
-- The generated GitHub Actions workflow will likely look for a default "Dockerfile," which doesn't exist in this case.
+- !!! **The first automatic deployment should fail** !!! 
+  - The generated GitHub Actions workflow will likely look for a default "Dockerfile," which doesn't exist in this case.
 - Update the workflow files (`Dockerfile` references) to use the appropriate Dockerfiles for each application. Use "Dockerfile_opa" in the workflow file for OPA and "Dockerfile_ctf" in the workflow file for Styra CTF.
 
 ## 6. Update Application References
