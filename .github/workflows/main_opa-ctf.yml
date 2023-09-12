@@ -16,17 +16,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
+    - name: Set up Docker Buildx for OPA
       uses: docker/setup-buildx-action@v2
 
-    - name: Log in to registry
+    - name: Log in to registry for OPA
       uses: docker/login-action@v2
       with:
         registry: https://styractfdockerregistry.azurecr.io/
         username: ${{ secrets.AzureAppService_ContainerUsername_c58d9cce9a7346c3b711305aa9bd9fa0 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_772eab0789f14700a622c705c1a73be2 }}
 
-    - name: Build and push container image to registry
+    - name: Build and push container image to registry for OPA
       uses: docker/build-push-action@v3
       with:
         push: true
@@ -41,7 +41,7 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-    - name: Deploy to Azure Web App
+    - name: Deploy to Azure Web App for OPA
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
