@@ -5,8 +5,8 @@
 
 ## 2. Initialize Web Apps
 - You can initialize the two Web Apps with any container image at this point. However, it's recommended to use the containers that correspond to the desired application to simplify debugging later on. 
-  -- To deploy Styra CTF and OPA, it is recommended to either deploy them locally and push the images to DockerHub, or use Azure's File Storage for the local files, and push containers to Azure Container Registry.
-  -- The benefit of using Azure Container Registry, is that it needs to be setup regardless of the chosen solution, as it will be later used to store the containers built using Github Actions. The login informations are then automatically transferred to the workflow file and Github secrets, if the app has been initialized using an image from ACR. Otherwise, it would need to have been set up manually.
+  - To deploy Styra CTF and OPA, it is recommended to either deploy them locally and push the images to DockerHub, or use Azure's File Storage for the local files, and push containers to Azure Container Registry.
+  - The benefit of using Azure Container Registry, is that it needs to be setup regardless of the chosen solution, as it will be later used to store the containers built using Github Actions. The login informations are then automatically transferred to the workflow file and Github secrets, if the app has been initialized using an image from ACR. Otherwise, it would need to have been set up manually.
 
 ## 3. Configure Application Settings
 - For each Azure Web App, go to "Settings" > "Configuration" > "Application Settings."
