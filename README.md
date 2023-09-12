@@ -42,5 +42,6 @@
   4. Add a VNet configuration, choosing the created subnet. Make sure "Route All" setting is enabled
   5. For OPA only: allow "Access Restrictions" in "Inbound Traffic"
   6. In "Access Restrictions" make sure "Allow public access" is enabled
-  7. Add an "" 
+  7. Add a rule to allow traffic from the created subnet
+  8. Set "Unmatched rule action" setting to "Deny" 
 
